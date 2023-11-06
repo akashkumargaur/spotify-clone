@@ -82,7 +82,9 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({
     }
     setValue('')
     setPriceIdLoading(undefined);
-    router.refresh();
+    router.push('/account');
+    subscribeModal.onClose();
+    window.location.reload();
   };
 
   let content = (

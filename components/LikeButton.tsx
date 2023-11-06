@@ -60,7 +60,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
     }
 
     if(!subscription){
-      return subscribeModal.onOpen;
+      return subscribeModal.onOpen();
     }
 
     if (isLiked) {
@@ -74,6 +74,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         toast.error(error.message);
       } else {
         setIsLiked(false);
+        toast.success('Remove for liked song');
       }
     } else {
       const { error } = await supabaseClient
