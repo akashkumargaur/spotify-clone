@@ -42,7 +42,7 @@ const AccountContent = () => {
             plan.
           </p>
           <div className="text-neutral-400 text-4xl">
-            Injoy Free Songs
+            Injoy Free Songs . Dear {user?.email}
           </div>
         </div>
       )}
