@@ -9,16 +9,12 @@ import PlayerContent from "./PlayerContent";
 const Player = () => {
   const player = usePlayer();
   const { song } = useGetSongById(player.activeId);
-  // console.log("1");
 
   const songUrl = useLoadSongUrl(song!);
 
   if (!song || !songUrl || !player.activeId) {
     return null;
   }
-
-  console.log(song,songUrl)
-
 
   return (
     <div 

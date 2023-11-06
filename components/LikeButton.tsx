@@ -34,10 +34,6 @@ const LikeButton: React.FC<LikeButtonProps> = ({
   
     const fetchData = async () => {
 
-      if(!subscription){
-        return subscribeModal.onOpen;
-      }
-
       const { data, error } = await supabaseClient
         .from('liked_songs')
         .select('*')
@@ -47,6 +43,9 @@ const LikeButton: React.FC<LikeButtonProps> = ({
 
       if (!error && data) {
         setIsLiked(true);
+      }
+      if(error){
+        console.log(error)
       }
     }
 
@@ -58,6 +57,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({
   const handleLike = async () => {
     if (!user) {
       return authModal.onOpen();
+    }
+
+    if(!subscription){
+      return subscribeModal.onOpen;
     }
 
     if (isLiked) {
